@@ -25,12 +25,12 @@ export class UsersPageComponent {
       this.term = this.term;
     }
 
-    // this.usersService.getUsersbyUsername(term).then((data) => {
-    //   this.users = data;
-    // });
+    this.usersService.getUsersbyUsername(term).then((data) => {
+      this.users = data.items;
+    });
 
-    this.users = this.users.filter((user) =>
-      user?.login.toLowerCase().includes(term.toLowerCase())
-    );
+    // this.users = this.users.filter((user) =>
+    //   user?.login.toLowerCase().includes(term.toLowerCase())
+    // );
   }
 }

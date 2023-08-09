@@ -13,7 +13,7 @@ import { ReposPageComponent } from './pages/repos-page/repos-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { AppReposComponent } from './components/app-repos/app-repos.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
@@ -25,7 +25,6 @@ import { ModalComponent } from './components/modal/modal.component';
     UsersPageComponent,
     ReposPageComponent,
     NavigationComponent,
-    AppReposComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,8 +33,9 @@ import { ModalComponent } from './components/modal/modal.component';
     FormsModule,
     NgbModule,
     ModalComponent,
+    AppReposComponent,
   ],
-  providers: [],
+  providers: [NgbActiveModal],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
