@@ -6,10 +6,24 @@ import { ProductComponent } from './components/product/product.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
+import { FormsModule } from '@angular/forms';
+import { SearchUsersPipe } from './pipes/search-users.pipe';
+import { UsersPageComponent } from './pages/users-page/users-page.component';
+import { ReposPageComponent } from './pages/repos-page/repos-page.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductComponent, GlobalErrorComponent],
-  imports: [BrowserModule, HttpClientModule],
+  declarations: [
+    AppComponent,
+    ProductComponent,
+    GlobalErrorComponent,
+    SearchUsersPipe,
+    UsersPageComponent,
+    ReposPageComponent,
+    NavigationComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

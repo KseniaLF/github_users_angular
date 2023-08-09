@@ -1,9 +1,5 @@
-<h1>{{ title | titlecase }}</h1>
-
-<!-- <app-product [users]="users[0]"></app-product> -->
-<!-- <app-product *ngFor="let user of users" [user]="user"></app-product> -->
-
-<p *ngIf="loading">Loading...</p>
-
-<app-product *ngFor="let user of users$ | async" [user]="user"></app-product>
 <app-global-error></app-global-error>
+
+<app-navigation></app-navigation>
+
+<router-outlet></router-outlet>
