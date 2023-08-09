@@ -1,4 +1,6 @@
 <div>
   <h2>{{ user.login }}</h2>
-  <img [src]="user.avatar_url" alt="avatar_url" />
+  <img [src]="user.avatar_url" alt="avatar_url" width="200" />
+
+  <a [routerLink]="['/repos', user.login]">Repos</a>
 </div>

@@ -3,15 +3,20 @@
 <h1>{{ title | titlecase }}</h1>
 
 <!-- <app-product [users]="users[0]"></app-product> -->
-<!-- <app-product *ngFor="let user of users" [user]="user"></app-product> -->
 
 <p *ngIf="loading">Loading...</p>
 
-<input type="text" placeholder="find users.." [(ngModel)]="term" />
+<!-- <input type="text" placeholder="find users.." [(ngModel)]="term" /> -->
 
-<div *ngIf="users$ | async as users">
-  <app-product
-    *ngFor="let user of users | searchUsers : term; let i = index"
-    [user]="user"
-  ></app-product>
-</div>
+<input type="text" placeholder="Filter by city" #filter />
+
+<button class="primary" type="button" (click)="filterResults(filter.value)">
+  Search
+</button>
+
+<app-product
+  *ngFor="let user of users | searchUsers : term"
+  [user]="user"
+></app-product>
+
+<app-modal></app-modal>

@@ -8,26 +8,29 @@ import { UsersService } from 'src/app/services/users.service';
   templateUrl: './users-page.component.html',
   styleUrls: ['./users-page.component.css'],
 })
-export class UsersPageComponent implements OnInit {
+export class UsersPageComponent {
   title = 'github users';
-  // users: IUser[] = [];
+  users: IUser[] = [];
   loading = false;
   term = '';
 
-  users$: Observable<IUser[]>;
+  constructor(private usersService: UsersService) {
+    this.usersService.getAll().then((data) => {
+      this.users = data;
+    });
+  }
 
-  constructor(private usersService: UsersService) {}
+  filterResults(term: string) {
+    if (!term) {
+      this.term = this.term;
+    }
 
-  ngOnInit(): void {
-    this.loading = true;
-
-    this.users$ = this.usersService
-      .getAll()
-      .pipe(tap(() => (this.loading = false)));
-    // this.loading = true;
-    // this.usersService.getAll().subscribe((users) => {
-    //   this.users = users;
-    //   this.loading = false;
+    // this.usersService.getUsersbyUsername(term).then((data) => {
+    //   this.users = data;
     // });
+
+    this.users = this.users.filter((user) =>
+      user?.login.toLowerCase().includes(term.toLowerCase())
+    );
   }
 }

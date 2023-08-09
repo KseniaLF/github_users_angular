@@ -5,7 +5,7 @@ import { ReposPageComponent } from './pages/repos-page/repos-page.component';
 
 const routes: Routes = [
   { path: '', component: UsersPageComponent },
-  { path: 'repos', component: ReposPageComponent },
+  { path: 'repos/:login', component: ReposPageComponent },
 ];
 
 @NgModule({

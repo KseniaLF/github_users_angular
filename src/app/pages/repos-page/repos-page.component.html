@@ -1,1 +1,3 @@
-<p>repos-page works!</p>
+<p *ngIf="loading">Loading...</p>
+
+<app-repos *ngFor="let repo of repos" [repo]="repo"></app-repos>
