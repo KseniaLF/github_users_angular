@@ -10,9 +10,23 @@
 <div class="modal-body">
   <p>Description: {{ repo.description }}</p>
   <p>Language: {{ repo.language }}</p>
-  <p>has_issues: {{ repo.has_issues }}</p>
+
+  <p>
+    has_issues:
+    <span *ngIf="repo.has_issues">
+      <i class="bi bi-check-circle"></i>
+    </span>
+    <span *ngIf="!repo.has_issues">
+      <i class="bi bi-x-circle"></i>
+    </span>
+  </p>
+
   <p>html_url: {{ repo.html_url }}</p>
+
+  <i class="bi bi-check-circle"></i>
+  <i class="bi bi-x-circle"></i>
 </div>
+
 <div class="modal-footer">
   <button
     type="button"

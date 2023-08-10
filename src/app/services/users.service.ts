@@ -33,7 +33,7 @@ export class UsersService {
 
   async getUsersbyUsername(username: string) {
     const data = await fetch(
-      `https://api.github.com/search/users?q=${username}`
+      `https://api.github.comf/search/users?q=${username}`
     );
     return (await data.json()) ?? {};
   }
@@ -53,7 +53,7 @@ export class UsersService {
         name: 'string',
         description: 'string',
         language: 'string',
-        has_issues: true,
+        has_issues: false,
         html_url: 'string',
       },
     ];

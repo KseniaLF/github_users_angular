@@ -5,7 +5,7 @@ import { IRepos } from 'src/app/models/repos';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  standalone: true,
+  // standalone: true,
 })
 export class ModalComponent {
   @Input() repo: IRepos;

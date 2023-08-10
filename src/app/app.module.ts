@@ -25,6 +25,7 @@ import { ModalComponent } from './components/modal/modal.component';
     UsersPageComponent,
     ReposPageComponent,
     NavigationComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +33,6 @@ import { ModalComponent } from './components/modal/modal.component';
     HttpClientModule,
     FormsModule,
     NgbModule,
-    ModalComponent,
     AppReposComponent,
     ReactiveFormsModule,
   ],
