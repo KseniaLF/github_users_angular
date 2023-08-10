@@ -1,0 +1,14 @@
+input {
+  padding: 10px;
+  width: 100%;
+  /* border: red; */
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgb(23, 106, 44);
+  transition: border-color 0.3s;
+}
+
+input:focus,
+input:hover {
+  border-bottom: 3px solid rgb(23, 106, 44);
+}

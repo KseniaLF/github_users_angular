@@ -10,25 +10,25 @@ export class UsersService {
   // constructor(private http: HttpClient, private errorService: ErrorService) {}
 
   async getAll() {
-    const data = await fetch('https://api.github.com/users');
-    return (await data.json()) ?? {};
-    // return [
-    //   {
-    //     login: 'string',
-    //     id: 123,
-    //     avatar_url: 'string',
-    //   },
-    //   {
-    //     login: 'string',
-    //     id: 5,
-    //     avatar_url: 'string',
-    //   },
-    //   {
-    //     login: 'string',
-    //     id: 5,
-    //     avatar_url: 'string',
-    //   },
-    // ];
+    // const data = await fetch('https://api.github.com/users');
+    // return (await data.json()) ?? {};
+    return [
+      {
+        login: 'string',
+        id: 123,
+        avatar_url: 'string',
+      },
+      {
+        login: 'string',
+        id: 5,
+        avatar_url: 'string',
+      },
+      {
+        login: 'string',
+        id: 5,
+        avatar_url: 'string',
+      },
+    ];
   }
 
   async getUsersbyUsername(username: string) {

@@ -6,7 +6,7 @@ import { ProductComponent } from './components/product/product.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchUsersPipe } from './pipes/search-users.pipe';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
 import { ReposPageComponent } from './pages/repos-page/repos-page.component';
@@ -34,6 +34,7 @@ import { ModalComponent } from './components/modal/modal.component';
     NgbModule,
     ModalComponent,
     AppReposComponent,
+    ReactiveFormsModule,
   ],
   providers: [NgbActiveModal],
   bootstrap: [AppComponent],

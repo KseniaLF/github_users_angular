@@ -3,13 +3,29 @@
 
   <p *ngIf="loading">Loading...</p>
 
-  <input type="text" placeholder="Filter by city" #filter />
+  <!-- <input type="text" placeholder="Filter by city" #filter />
 
   <div>
     <button class="primary" type="submit" (click)="filterResults(filter.value)">
       Search
     </button>
+  </div> -->
+
+  <div [ngStyle]="{ color: errorMessage ? 'red' : 'initial' }">
+    {{ errorMessage }}
   </div>
+
+  <form [formGroup]="filterForm">
+    <input
+      type="text"
+      placeholder="Search users..."
+      formControlName="filter"
+      [ngStyle]="{ 'border-color': errorMessage && 'red' }"
+      [ngClass]="{ 'error-border': errorMessage }"
+    />
+  </form>
+
+  <div *ngIf="users.length === 0">No results 😔</div>
 
   <div class="row row-cols-2 g-5 mt-1 text-center">
     <app-product *ngFor="let user of users" [user]="user"></app-product>

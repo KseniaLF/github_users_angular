@@ -1,5 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  Observable,
+  catchError,
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  switchMap,
+  tap,
+  throwError,
+} from 'rxjs';
 import { IUser } from 'src/app/models/users';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -8,29 +19,53 @@ import { UsersService } from 'src/app/services/users.service';
   templateUrl: './users-page.component.html',
   styleUrls: ['./users-page.component.css'],
 })
-export class UsersPageComponent {
+export class UsersPageComponent implements OnInit {
   title = 'github users';
   users: IUser[] = [];
-  loading = false;
-  term = '';
+  loading: boolean = false;
+  term: string = '';
+  errorMessage: string = '';
 
-  constructor(private usersService: UsersService) {
+  filterForm: FormGroup;
+
+  constructor(
+    private usersService: UsersService,
+    private fb: FormBuilder,
+    private http: HttpClient
+  ) {
     this.usersService.getAll().then((data) => {
       this.users = data;
     });
+
+    this.filterForm = this.fb.group({
+      filter: [''],
+    });
   }
 
-  filterResults(term: string) {
-    if (!term) {
-      this.term = this.term;
+  ngOnInit() {
+    if (this.filterForm.get('filter')) {
+      this.filterForm
+        .get('filter')!
+        .valueChanges.pipe(
+          // filter((value) => value !== ''),
+          debounceTime(1000),
+          distinctUntilChanged(),
+          switchMap((value) => this.filterResults(value)),
+          catchError((err) => {
+            this.errorMessage = `Something went wrong, try again. ${err.message}`;
+            return throwError(err);
+          })
+        )
+
+        .subscribe((results) => {
+          this.errorMessage = '';
+          console.log(results.items);
+          this.users = results.items;
+        });
     }
+  }
 
-    this.usersService.getUsersbyUsername(term).then((data) => {
-      this.users = data.items;
-    });
-
-    // this.users = this.users.filter((user) =>
-    //   user?.login.toLowerCase().includes(term.toLowerCase())
-    // );
+  filterResults(value: string) {
+    return this.usersService.getUsersbyUsername(value);
   }
 }
