@@ -1,16 +1,6 @@
 <div class="d-flex flex-column gap-3">
   <h1 class="pe-none">{{ title | titlecase }}</h1>
 
-  <p *ngIf="loading">Loading...</p>
-
-  <!-- <input type="text" placeholder="Filter by city" #filter />
-
-  <div>
-    <button class="primary" type="submit" (click)="filterResults(filter.value)">
-      Search
-    </button>
-  </div> -->
-
   <div [ngStyle]="{ color: errorMessage ? 'red' : 'initial' }">
     {{ errorMessage }}
   </div>
@@ -25,9 +15,10 @@
     />
   </form>
 
-  <div *ngIf="users.length === 0">No results 😔</div>
+  <div *ngIf="users.length === 0 && !loading">No results 😔</div>
+  <p *ngIf="loading">Loading...</p>
 
   <div class="row row-cols-2 g-5 mt-1 text-center">
-    <app-product *ngFor="let user of users" [user]="user"></app-product>
+    <app-users *ngFor="let user of users" [user]="user"></app-users>
   </div>
 </div>

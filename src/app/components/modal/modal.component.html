@@ -21,10 +21,10 @@
     </span>
   </p>
 
-  <p>html_url: {{ repo.html_url }}</p>
-
-  <i class="bi bi-check-circle"></i>
-  <i class="bi bi-x-circle"></i>
+  <p>
+    html_url:
+    <a target="_blank" [attr.href]="repo.html_url"> {{ repo.html_url }}</a>
+  </p>
 </div>
 
 <div class="modal-footer">

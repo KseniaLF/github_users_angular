@@ -1,17 +1,12 @@
-import { ErrorService } from './error.service';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
-  // constructor(private http: HttpClient, private errorService: ErrorService) {}
-
   async getAll() {
-    // const data = await fetch('https://api.github.com/users');
-    // return (await data.json()) ?? {};
+    const data = await fetch('https://api.github.com/users');
+    return (await data.json()) ?? {};
     return [
       {
         login: 'string',
@@ -33,14 +28,14 @@ export class UsersService {
 
   async getUsersbyUsername(username: string) {
     const data = await fetch(
-      `https://api.github.comf/search/users?q=${username}`
+      `https://api.github.com/search/users?q=${username}`
     );
     return (await data.json()) ?? {};
   }
 
   async getRepos(login: string) {
-    // const data = await fetch(`https://api.github.com/users/${login}/repos`);
-    // return (await data.json()) ?? {};
+    const data = await fetch(`https://api.github.com/users/${login}/repos`);
+    return (await data.json()) ?? {};
     return [
       {
         name: 'string',
@@ -58,9 +53,4 @@ export class UsersService {
       },
     ];
   }
-
-  // private errorHandler(error: HttpErrorResponse) {
-  //   this.errorService.handle(error.message);
-  //   return throwError(() => error.message);
-  // }
 }

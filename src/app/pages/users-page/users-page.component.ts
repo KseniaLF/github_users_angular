@@ -1,14 +1,11 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {
-  Observable,
   catchError,
   debounceTime,
   distinctUntilChanged,
   filter,
   switchMap,
-  tap,
   throwError,
 } from 'rxjs';
 import { IUser } from 'src/app/models/users';
@@ -22,19 +19,16 @@ import { UsersService } from 'src/app/services/users.service';
 export class UsersPageComponent implements OnInit {
   title = 'github users';
   users: IUser[] = [];
-  loading: boolean = false;
+  loading: boolean = true;
   term: string = '';
   errorMessage: string = '';
 
   filterForm: FormGroup;
 
-  constructor(
-    private usersService: UsersService,
-    private fb: FormBuilder,
-    private http: HttpClient
-  ) {
+  constructor(private usersService: UsersService, private fb: FormBuilder) {
     this.usersService.getAll().then((data) => {
       this.users = data;
+      this.loading = false;
     });
 
     this.filterForm = this.fb.group({
@@ -47,7 +41,7 @@ export class UsersPageComponent implements OnInit {
       this.filterForm
         .get('filter')!
         .valueChanges.pipe(
-          // filter((value) => value !== ''),
+          filter((value) => value !== ''),
           debounceTime(1000),
           distinctUntilChanged(),
           switchMap((value) => this.filterResults(value)),
@@ -61,6 +55,7 @@ export class UsersPageComponent implements OnInit {
           this.errorMessage = '';
           console.log(results.items);
           this.users = results.items;
+          this.loading = false;
         });
     }
   }

@@ -1,11 +1,10 @@
 <div class="d-flex flex-column gap-3">
   <a routerLink="/">Back to users</a>
 
-  <p *ngIf="loading">Loading...</p>
-
   <h2 class="pe-none">Repositories:</h2>
 
-  <div *ngIf="repos.length === 0">No results 😔</div>
+  <div *ngIf="repos.length === 0 && !loading">No results 😔</div>
+  <p *ngIf="loading">Loading...</p>
 
   <div class="d-flex flex-column gap-3 px-3">
     <app-repos *ngFor="let repo of repos" [repo]="repo"></app-repos>
