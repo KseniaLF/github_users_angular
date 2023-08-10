@@ -1,9 +1,9 @@
-.repo-link {
+.repos-link {
   color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
-.repo-link:hover {
+.repos-link:hover {
   color: rgb(23, 106, 44);
   text-decoration: underline;
 }

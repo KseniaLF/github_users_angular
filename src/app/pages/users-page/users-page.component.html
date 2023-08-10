@@ -1,22 +1,17 @@
-<p>users-page works!</p>
+<div class="d-flex flex-column gap-3">
+  <h1 class="pe-none">{{ title | titlecase }}</h1>
 
-<h1>{{ title | titlecase }}</h1>
+  <p *ngIf="loading">Loading...</p>
 
-<!-- <app-product [users]="users[0]"></app-product> -->
+  <input type="text" placeholder="Filter by city" #filter />
 
-<p *ngIf="loading">Loading...</p>
+  <div>
+    <button class="primary" type="submit" (click)="filterResults(filter.value)">
+      Search
+    </button>
+  </div>
 
-<!-- <input type="text" placeholder="find users.." [(ngModel)]="term" /> -->
-
-<input type="text" placeholder="Filter by city" #filter />
-
-<button class="primary" type="button" (click)="filterResults(filter.value)">
-  Search
-</button>
-
-<app-product
-  *ngFor="let user of users | searchUsers : term"
-  [user]="user"
-></app-product>
-
-<app-modal></app-modal>
+  <div class="row row-cols-2 g-5 mt-1 text-center">
+    <app-product *ngFor="let user of users" [user]="user"></app-product>
+  </div>
+</div>

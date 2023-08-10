@@ -23,6 +23,11 @@ export class UsersService {
     //     id: 5,
     //     avatar_url: 'string',
     //   },
+    //   {
+    //     login: 'string',
+    //     id: 5,
+    //     avatar_url: 'string',
+    //   },
     // ];
   }
 
@@ -34,17 +39,24 @@ export class UsersService {
   }
 
   async getRepos(login: string) {
-    const data = await fetch(`https://api.github.com/users/${login}/repos`);
-    return (await data.json()) ?? {};
-    // return [
-    //   {
-    //     name: 'string',
-    //     description: 'string',
-    //     language: 'string',
-    //     has_issues: true,
-    //     html_url: 'string',
-    //   },
-    // ];
+    // const data = await fetch(`https://api.github.com/users/${login}/repos`);
+    // return (await data.json()) ?? {};
+    return [
+      {
+        name: 'string',
+        description: 'string',
+        language: 'string',
+        has_issues: true,
+        html_url: 'string',
+      },
+      {
+        name: 'string',
+        description: 'string',
+        language: 'string',
+        has_issues: true,
+        html_url: 'string',
+      },
+    ];
   }
 
   // private errorHandler(error: HttpErrorResponse) {

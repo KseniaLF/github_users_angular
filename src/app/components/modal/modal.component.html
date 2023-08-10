@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title">Hi there!</h4>
+  <h4 class="modal-title">{{ repo.name }}</h4>
   <button
     type="button"
     class="btn-close"
@@ -8,7 +8,10 @@
   ></button>
 </div>
 <div class="modal-body">
-  <p>Hello, {{ repo.name }}!</p>
+  <p>Description: {{ repo.description }}</p>
+  <p>Language: {{ repo.language }}</p>
+  <p>has_issues: {{ repo.has_issues }}</p>
+  <p>html_url: {{ repo.html_url }}</p>
 </div>
 <div class="modal-footer">
   <button
@@ -19,9 +22,3 @@
     Close
   </button>
 </div>
-
-<!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">
-  Launch demo modal
-</button> -->
-
-<hr />
