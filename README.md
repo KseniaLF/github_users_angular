@@ -1,6 +1,7 @@
 # GithubUsersAngular
 
-![ezgif com-video-to-gif (3)](https://github.com/KseniaLF/github_users_angular/assets/85734272/59567d8a-964a-42c2-8631-0f1eaf258a35)
+![2023-08-10 18-17-02](https://github.com/KseniaLF/github_users_angular/assets/85734272/eef4cea0-3ba9-4f52-9bcb-7d731468aef4)
+
 
 
 
