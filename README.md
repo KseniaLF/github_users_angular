@@ -1,5 +1,8 @@
 # GithubUsersAngular
 
+![v](https://github.com/KseniaLF/github_users_angular/assets/85734272/5b21a010-6413-4fde-a51c-b0184a494c98)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
 
 ## Development server
