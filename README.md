@@ -1,11 +1,8 @@
-# GithubUsersAngular
+# Github Users 
 
 ![2023-08-10 18-17-02](https://github.com/KseniaLF/github_users_angular/assets/85734272/eef4cea0-3ba9-4f52-9bcb-7d731468aef4)
 
-
-
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
+### The project was developed with Angular and Bootstrap
 
 ## Development server
 
