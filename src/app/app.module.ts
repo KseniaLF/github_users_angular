@@ -9,7 +9,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
 import { ReposPageComponent } from './pages/repos-page/repos-page.component';
 import { AppRoutingModule } from './app-routing.module';
-import { NavigationComponent } from './components/navigation/navigation.component';
 import { AppReposComponent } from './components/app-repos/app-repos.component';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './components/modal/modal.component';
@@ -20,7 +19,6 @@ import { ModalComponent } from './components/modal/modal.component';
     UsersComponent,
     UsersPageComponent,
     ReposPageComponent,
-    NavigationComponent,
     ModalComponent,
   ],
   imports: [

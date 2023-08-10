@@ -8,8 +8,8 @@
   ></button>
 </div>
 <div class="modal-body">
-  <p>Description: {{ repo.description }}</p>
-  <p>Language: {{ repo.language }}</p>
+  <p *ngIf="repo.description">Description: {{ repo.description }}</p>
+  <p *ngIf="repo.language">Language: {{ repo.language }}</p>
 
   <p>
     has_issues:
