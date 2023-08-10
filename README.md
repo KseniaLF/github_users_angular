@@ -1,6 +1,7 @@
 # GithubUsersAngular
 
-![v](https://github.com/KseniaLF/github_users_angular/assets/85734272/5b21a010-6413-4fde-a51c-b0184a494c98)
+![ezgif com-video-to-gif (3)](https://github.com/KseniaLF/github_users_angular/assets/85734272/59567d8a-964a-42c2-8631-0f1eaf258a35)
+
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
